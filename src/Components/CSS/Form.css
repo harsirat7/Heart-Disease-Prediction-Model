@@ -1,0 +1,133 @@
+.mainContainer{
+    height: 1100px;
+    width: 550px;
+    background-color: aliceblue;
+    overflow: hidden;
+    border-radius: 25px;
+    border: 5px solid white;
+}
+
+.mainTitleContainer{
+    height: 100px;
+    width: 100%;
+    background-color: #061E29;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1.5px solid white;
+}
+
+.mainTitle{
+    font-family: Georgia, 'Times New Roman', Times, serif,cursive;
+    color:#7F8CAA;
+    font-size: 35px;
+}
+
+.bodyContainer{
+    height: 850px;
+    width: 100%;
+    background-color: #061E29;
+}
+
+.formContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.labelContainer{
+    height: 100%;
+    width: 50%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.inputContainer{
+    height: 100%;
+    width: 50%;
+    /* background-color: blueviolet; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.labels{
+    font-family: 'Times New Roman', Times, serif,cursive;
+    font-size: 20px;
+    color: white;
+}
+
+.inputs{
+    height: 25px;
+    width: 200px;
+    border-style: none;
+    text-align: center;
+    border-radius: 9999px;
+}
+
+.radioDiv{
+    height: 25px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    
+}
+
+.selectionBox{
+    height: 25px;
+    width: 200px;
+    text-align: center;
+}
+
+.submitBtnContainer{
+    height: 100px;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #061E29;
+}
+
+.submitBtn{
+    height: 50px;
+    width: 250px;
+    border-radius: 9999px;
+    border-style: none;
+    cursor: pointer;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.resultContainer{
+    height: 50px;
+    width: 100%;
+    background-color: #061E29;
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+}
+
+.result{
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
