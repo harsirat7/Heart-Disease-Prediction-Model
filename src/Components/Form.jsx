@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./CSS/Form.css";
+import dataAPI from '../API/dataAPI';
+import { dataContextAPI } from '../ContextAPI/ContextAPI';
 
 export default function Form() {
+
+    const { diseaseResult, setDiseaseResult } = useContext(dataContextAPI);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+        dataAPI(data, setDiseaseResult);
+    };
+
+
+
     return (
         <div className='mainContainer'>
             <div className="mainTitleContainer">
@@ -10,7 +24,7 @@ export default function Form() {
 
             <div className="bodyContainer">
                 <div className="formContainer">
-                    <form action="" className="form" id='form'>
+                    <form action="/" className="form" id='form' onSubmit={handleSubmit}>
                         <div className="labelContainer">
                             <label htmlFor="age" className="labels">Age</label>
                             <label htmlFor="gender" className="labels">Gender</label>
@@ -28,48 +42,48 @@ export default function Form() {
                         </div>
 
                         <div className="inputContainer">
-                            <input type="text" className="inputs" name='age' required/>
+                            <input type="text" className="inputs" name='age' required />
                             <div className="radioDiv">
-                                <input type="radio" name='gender' required/>Male&nbsp;&nbsp;&nbsp;
-                                <input type="radio" name='gender' required/>Female
+                                <input type="radio" name='gender' value="male" required />Male&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name='gender' value="Female" required />Female
                             </div>
                             <select name="chestPain" id="chestPain" className='selectionBox' required>
-                                <option value="0" selected>0</option>
+                                <option defaultValue="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                             </select>
-                            <input type="text" className='inputs' name='restingBp' required/>
-                            <input type="text" name="cholesterol" className='inputs' required/>
+                            <input type="text" className='inputs' name='restingBp' required />
+                            <input type="text" name="cholesterol" className='inputs' required />
                             <div className="radioDiv">
-                                <input type="radio" name='sugar' required/>Yes&nbsp;&nbsp;&nbsp;
-                                <input type="radio" name='sugar' required/>No
+                                <input type="radio" name='sugar' value="yes" required />Yes&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name='sugar' value="no" required />No
                             </div>
                             <select name="ecg" id="ecg" className='selectionBox' required>
-                                <option value="0" selected>0</option>
+                                <option defaultValue="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
-                            <input type="text" className="inputs" name='heartRate' required/>
+                            <input type="text" className="inputs" name='heartRate' required />
                             <div className="radioDiv">
-                                <input type="radio" name='angina' required/>Yes&nbsp;&nbsp;&nbsp;
-                                <input type="radio" name='angina' required/>No
+                                <input type="radio" name='angina' value="yes" required />Yes&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name='angina' value="no" required />No
                             </div>
-                            <input type="text" className="inputs" required/>
+                            <input type="text" className="inputs" name='depression' required />
                             <select name="slope" id="slope" className='selectionBox' required>
-                                <option value="0">0</option>
+                                <option defaultValue="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
                             <select name="numVessels" id="numVessels" className='selectionBox' required>
-                                <option value="0">0</option>
+                                <option defaultValue="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                             </select>
                             <select name="thalassemia" id="thalassemia" className='selectionBox' required>
-                                <option value="0">0</option>
+                                <option defaultValue="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -84,10 +98,16 @@ export default function Form() {
             </div>
 
             <div className="resultContainer">
-                <span className='result'>This is a testing message , actual result may vary</span>
+                <span className='result'>
+                    {
+                        diseaseResult ? `You have ${diseaseResult} chances to have Heart diseases` : "This is a testing message , actual result may vary"
+                    }
+                </span>
             </div>
 
 
         </div>
     )
 }
+
+

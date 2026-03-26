@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score;
 from sklearn.preprocessing import StandardScaler;
 
 # loading data
-df=pd.read_csv("Backend/heart.csv");
+df=pd.read_csv("C:/Users/Harsirat/Desktop/Project/Heart Diseases Prediction/Backend/heart.csv");
 
 # loading scaler
 scaler=StandardScaler();
@@ -27,11 +27,9 @@ x_test_scaled=scaler.transform(x_test);
 # model training
 model.fit(x_train_scaled,y_train);
 
-# model prediction
-y_prediction=model.predict(x_test_scaled);
-y_training_prediction=model.predict(x_train_scaled);
 
-# model evalution
-print("Accuracy:",accuracy_score(y_test,y_prediction));
-print("Accuracy on Training Data:",accuracy_score(y_train,y_training_prediction));
 
+def prediction(data):
+    predictionData=scaler.transform([data])
+    result=model.predict(predictionData);
+    return result;

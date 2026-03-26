@@ -1,10 +1,15 @@
+import { useState } from "react"
 import Form from "./Components/Form"
+import { dataContextAPI } from "./ContextAPI/ContextAPI";
+
 
 function App() {
-
+  const [diseaseResult, setDiseaseResult] = useState("");
   return (
     <>
-    <Form/>
+      <dataContextAPI.Provider value={{ diseaseResult, setDiseaseResult }}>
+        <Form />
+      </dataContextAPI.Provider>
     </>
   )
 }
